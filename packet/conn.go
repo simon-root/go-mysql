@@ -98,9 +98,14 @@ func (c *Conn) ReadPacketReuseMem(dst []byte) ([]byte, error) {
 		return nil, errors.Trace(err)
 	}
 
-	result := buf.Bytes()
+	readBytes := buf.Bytes()
+	result := make([]byte, 0, len(readBytes)+len(dst))
 	if len(dst) > 0 {
-		result = append(dst, buf.Bytes()...)
+		result = append(result, dst...)
+		result = append(result, readBytes...)
+
+	} else {
+		result = append(result, readBytes...)
 	}
 	return result, nil
 }
