@@ -3,15 +3,14 @@ package packet
 import (
 	"bufio"
 	"bytes"
-	"io"
-	"net"
-	"sync"
-
 	"crypto/rand"
 	"crypto/rsa"
 	"crypto/sha1"
 	"crypto/x509"
 	"encoding/pem"
+	"io"
+	"net"
+	"sync"
 
 	. "github.com/go-mysql-org/go-mysql/mysql"
 	"github.com/go-mysql-org/go-mysql/utils"
@@ -97,10 +96,13 @@ func (c *Conn) ReadPacketReuseMem(dst []byte) ([]byte, error) {
 
 	if err := c.ReadPacketTo(buf); err != nil {
 		return nil, errors.Trace(err)
-	} else {
-		result := append(dst, buf.Bytes()...)
-		return result, nil
 	}
+
+	result := buf.Bytes()
+	if len(dst) > 0 {
+		result = append(dst, buf.Bytes()...)
+	}
+	return result, nil
 }
 
 func (c *Conn) copyN(dst io.Writer, src io.Reader, n int64) (written int64, err error) {
