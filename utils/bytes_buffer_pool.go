@@ -27,6 +27,10 @@ func BytesBufferGet() (data *bytes.Buffer) {
 }
 
 func BytesBufferPut(data *bytes.Buffer) {
+	if len(data.Bytes()) > 1024*1024*16 {
+		return
+	}
+
 	select {
 	case bytesBufferChan <- data:
 	default:
