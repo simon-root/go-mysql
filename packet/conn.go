@@ -99,13 +99,20 @@ func (c *Conn) ReadPacketReuseMem(dst []byte) ([]byte, error) {
 	}
 
 	readBytes := buf.Bytes()
-	result := make([]byte, 0, len(readBytes)+len(dst))
+	readSize := len(readBytes) + len(dst)
+	result := make([]byte, 0, readSize)
 	if len(dst) > 0 {
 		result = append(result, dst...)
 		result = append(result, readBytes...)
 
 	} else {
-		result = append(result, readBytes...)
+		if readSize <= utils.TooBigBlockSize {
+			result = append(result, readBytes...)
+		} else {
+			// 如果读取数据块太大，直接引用读取的结果，放弃缓存申请到的内存
+			result = readBytes
+			buf = nil
+		}
 	}
 	return result, nil
 }
