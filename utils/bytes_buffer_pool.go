@@ -31,7 +31,7 @@ func BytesBufferGet() (data *bytes.Buffer) {
 }
 
 func BytesBufferPut(data *bytes.Buffer) {
-	if data == nil || len(data.Bytes()) < 4*1024 || len(data.Bytes()) > TooBigBlockSize {
+	if data == nil || len(data.Bytes()) > TooBigBlockSize {
 		return
 	}
 
