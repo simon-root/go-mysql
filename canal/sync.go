@@ -5,11 +5,11 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/go-mysql-org/go-mysql/mysql"
-	"github.com/go-mysql-org/go-mysql/replication"
-	"github.com/go-mysql-org/go-mysql/schema"
+	"github.com/simon-root/go-mysql/v2/mysql"
+	"github.com/simon-root/go-mysql/v2/replication"
+	"github.com/simon-root/go-mysql/v2/schema"
 	"github.com/pingcap/errors"
-	"github.com/pingcap/parser/ast"
+	"github.com/simon-root/parser/v5/ast"
 	uuid "github.com/satori/go.uuid"
 	"github.com/siddontang/go-log/log"
 )

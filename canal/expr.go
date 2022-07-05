@@ -3,8 +3,8 @@ package canal
 import (
 	"io"
 
-	"github.com/pingcap/parser/ast"
-	"github.com/pingcap/parser/format"
+	"github.com/simon-root/parser/v5/ast"
+	"github.com/simon-root/parser/v5/format"
 )
 
 func init() {

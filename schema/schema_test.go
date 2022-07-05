@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/go-mysql-org/go-mysql/client"
-	_ "github.com/go-mysql-org/go-mysql/driver"
+	"github.com/simon-root/go-mysql/v2/client"
+	_ "github.com/simon-root/go-mysql/v2/driver"
 	. "github.com/pingcap/check"
 )
 

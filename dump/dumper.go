@@ -8,7 +8,7 @@ import (
 	"os/exec"
 	"strings"
 
-	. "github.com/go-mysql-org/go-mysql/mysql"
+	. "github.com/simon-root/go-mysql/v2/mysql"
 	"github.com/pingcap/errors"
 	"github.com/siddontang/go-log/log"
 )

@@ -8,8 +8,8 @@ import (
 	. "github.com/pingcap/check"
 	"github.com/pingcap/errors"
 
-	"github.com/go-mysql-org/go-mysql/mysql"
-	"github.com/go-mysql-org/go-mysql/test_util/test_keys"
+	"github.com/simon-root/go-mysql/v2/mysql"
+	"github.com/simon-root/go-mysql/v2/test_util/test_keys"
 )
 
 type clientTestSuite struct {

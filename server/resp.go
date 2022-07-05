@@ -3,7 +3,7 @@ package server
 import (
 	"fmt"
 
-	. "github.com/go-mysql-org/go-mysql/mysql"
+	. "github.com/simon-root/go-mysql/v2/mysql"
 )
 
 func (c *Conn) writeOK(r *Result) error {

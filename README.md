@@ -3,13 +3,13 @@
 A pure go library to handle MySQL network protocol and replication.
 
 ![semver](https://img.shields.io/github/v/tag/go-mysql-org/go-mysql)
-![example workflow](https://github.com/go-mysql-org/go-mysql/actions/workflows/ci.yml/badge.svg)
+![example workflow](https://github.com/simon-root/go-mysql/v2/actions/workflows/ci.yml/badge.svg)
 ![gomod version](https://img.shields.io/github/go-mod/go-version/go-mysql-org/go-mysql/master)
 
 ## How to migrate to this repo
 To change the used package in your repo it's enough to add this `replace` directive to your `go.mod`:
 ```
-replace github.com/siddontang/go-mysql => github.com/go-mysql-org/go-mysql v1.3.0
+replace github.com/siddontang/go-mysql => github.com/simon-root/go-mysql/v2 v1.3.0
 ```
 
 v1.3.0 - is the last tag in repo, feel free to choose what you want.
@@ -36,7 +36,7 @@ You can use it as a MySQL slave to sync binlog from master then do something, li
 
 ```go
 import (
-	"github.com/go-mysql-org/go-mysql/replication"
+	"github.com/simon-root/go-mysql/v2/replication"
 	"os"
 )
 // Create a binlog syncer with a unique server id, the server id must be different from other MySQL's. 
